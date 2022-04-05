@@ -2,6 +2,7 @@
 .index-container {
   width: min(99vw, 99.2%);
   margin: auto;
+  z-index:1
 }
 .index-wrapper {
   display: flex;

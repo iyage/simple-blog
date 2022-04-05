@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
+<link rel="stylesheet" href="commons/styles/style.css">
 <link rel="stylesheet" href= "commons/fonts/css/all.css" />
 <link rel="stylesheet" href="commons/styles/index.css">
 <link rel="stylesheet" href="commons/styles/pagination.css" />
