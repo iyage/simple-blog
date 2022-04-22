@@ -1,0 +1,74 @@
+.login-container{
+width: min(90%,90.2vw);
+margin:auto;
+margin-top: 150px;
+max-width: 600px;
+}
+body{
+   background-color: var(---secondary)
+}
+.form-container{
+   width: 100%;
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+padding: 30px 20px;
+background-color: white;
+border-radius: 7px;
+}
+.form-input{
+   width: 100%;
+   margin: 10px 0;
+   height: 50px;
+   border-radius: 7px;
+   border: none;
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+   font-size: 1.1rem;
+   text-align: center;
+}
+.btn-large{
+   font-size: 1.3rem;
+   width: 100%;
+   padding: 0.5em;
+
+}
+.form-input:focus{
+   outline: none;
+}
+.btn{
+   cursor: pointer;
+   border: none;
+   border-radius: 7px;
+   margin: 20px 0;
+}
+.btn-primary{
+   background-color: var(---primary);
+   color: white;
+}
+.btn-secondary{
+   background-color: var(---secondary);
+   color: black;  
+}
+.registration-container{
+   position: fixed;
+   width: 100%;
+   height: 100vh;
+   background-color: rgb(128, 128, 128,0.4);
+   top: 0;
+   left: 0;
+   right: 0;
+   
+ 
+ 
+}
+.registration-form{
+   margin: auto;
+   margin-top: 110px;
+   padding: 20px;
+   max-width: 600px;
+   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+   background-color: white;
+   border-radius: 7px;
+}
+#close-button{
+   font-size: 20px;
+   cursor: pointer;
+}

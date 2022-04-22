@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.post-container {
+  width: min(67vw, 67.3%);
+  margin: auto;
+}
+@media only screen and (max-width: 786px) {
+  .post-container {
+    width: min(98vw, 98.3%);
+    margin: auto;
+  }
+}
+
+.post {
+  background-color: white;
+  padding: 10px;
+  width: 100%;
+}
+.author-profile {
+  display: flex;
+  flex-wrap: wrap;
+  height: 90px;
+  align-items: center;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 7px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.author-image {
+  padding: 5px;
+  flex: 30%;
+  flex-grow: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 70px;
+}
+.author-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  margin-left: 15px;
+}
+h5 {
+  font-size: 18px;
+  font-weight: 500;
+  /* font-family: lobster; */
+  white-space: nowrap;
+  text-align: center;
+}
+.author-post {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+.badges {
+  height: 10px;
+  width: 20px;
+  background-color: #005c80;
+  border: 0;
+  padding: 0.3em;
+  font-size: 12px;
+  color: white;
+  border-radius: 6px;
+}
+.author-milage {
+  flex: 30%;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.comments-likes {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 5px 0 30px 0;
+}
+/* #post-like {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+}
+#post-comment {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+} */
+.comments {
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+.edit {
+  cursor: pointer;
+}
+.comment-section {
+  width: 94%;
+  background-color: rgba(0, 92, 128, 0.3);
+  /* rgba(110, 103, 103, 0.2); */
+  border-radius: 7px;
+  margin: auto;
+  position: relative;
+}
+.comment-content {
+  padding: 20px;
+}
+.comment-author {
+  position: absolute;
+  top: -10px;
+  left: -18px;
+  border: solid 3px white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.commenter-name {
+  margin-left: 55px;
+  padding-bottom: 5px;
+  /* font-family: lobster; */
+  font-size: 14px;
+}
+.reply-likes {
+  display: flex;
+  width: 50%;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 5px;
+}
+.icon-class {
+  cursor: pointer;
+  font-size: 24px;
+}

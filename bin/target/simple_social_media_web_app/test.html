@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="commons/styles/pagination.css" />
+    <style>
+      ul {
+        list-style: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="data-container"></div>
+    <div id="pagination-container"></div>
+    <script src="commons/js/jquery.js"></script>
+    <script src="commons/js/pagination.js"></script>
+    <script>
+      function simpleTemplating(data) {
+        var html = document.createElement("div");
+        $.each(data, function (index, item) {
+          var par = document.createElement("p");
+          par.innerHTML = item.name;
+          html.append(par);
+        });
+        return html;
+      }
+      $("#pagination-container").pagination({
+        dataSource: [
+          { name: "yage" },
+          { name: "richard" },
+          { name: "doe" },
+          { name: "john" },
+          { name: "sam" },
+          { name: "tope" },
+          { name: "seun" },
+          { name: "ade" },
+          { name: "lekan" },
+        ],
+        pageSize: 5,
+        className: "paginationjs-theme-blue paginationjs-small",
+        ulClassName: "paginate",
+        activeClassName: "active",
+        disableClassName: "not-selected",
+        callback: function (data, pagination) {
+          var html = simpleTemplating(data);
+          $("#data-container").html(html);
+        },
+      });
+    </script>
+  </body>
+</html>
