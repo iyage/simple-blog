@@ -99,6 +99,7 @@
       <artifactId>java-dotenv</artifactId>
       <version>5.2.2</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.jsimone/webapp-runner -->
     <dependency>
       <groupId>com.github.jsimone</groupId>
       <artifactId>webapp-runner</artifactId>
@@ -106,40 +107,9 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
-        <configuration>
-          <source>1.8</source>
-          <target>1.8</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.2</version>
-        <configuration>
-          <failOnMissingWebXml>false</failOnMissingWebXml>
-          <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
-          <warName>${project.artifactId}</warName>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>3.1.2</version>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals><goal>copy-dependencies</goal></goals>
-            <configuration>
-              <includeArtifactIds>webapp-runner</includeArtifactIds>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -162,6 +132,7 @@
       </plugin>
     </plugins>
   </build>
+<!--  <build>-->
 <!--    <finalName>simple_social_media_web_app</finalName>-->
 <!--    <pluginManagement>&lt;!&ndash; lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) &ndash;&gt;-->
 <!--      <plugins>-->
@@ -196,4 +167,5 @@
 <!--        </plugin>-->
 <!--      </plugins>-->
 <!--    </pluginManagement>-->
+<!--  </build>-->
 </project>
