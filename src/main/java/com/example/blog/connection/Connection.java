@@ -8,20 +8,23 @@ import java.sql.SQLException;
 
 public class Connection {
     Dotenv dotenv = Dotenv.configure().load();
+//    //dev
+//    private  static  Connection instance = new Connection();
+//    private  String url = "jdbc:mysql://"+dotenv.get("DB_HOST")+":3306/"+dotenv.get("DB_NAME");
+//    private  String userName = dotenv.get("DB_USER");
+//    private String password = dotenv.get("DB_PASSWORD");
 
+    //////////////////////////////////////////////////////////
+    //prod
     private  static  Connection instance = new Connection();
-    private  String url = "jdbc:mysql://"+dotenv.get("DB_HOST")+":3306/"+dotenv.get("DB_NAME");
-    private  String userName = dotenv.get("DB_USER");
-    private String password = dotenv.get("DB_PASSWORD");
-    private Connection() {
-    }
+    private  String url = "jdbc:mysql://"+System.getenv("DB_HOST")+":3306/"+System.getenv("DB_NAME");
+    private  String userName = System.getenv("DB_USER");
+    private String password = System.getenv("DB_PASSWORD");
+    private Connection() {}
   private java.sql.Connection getConnection() {
        java.sql.Connection connection = null;
        try{
-           Class.forName("com.mysql.cj.jdbc.Driver");
-           System.out.println(url);
-           System.out.println(userName);
-           System.out.println(password);
+           Class.forName("com.mysql.cj.jdbc.Driver");;
           connection = DriverManager.getConnection(url,userName,password);
        }
        catch (ClassNotFoundException | SQLException e){

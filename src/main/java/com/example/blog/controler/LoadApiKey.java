@@ -15,6 +15,10 @@ public class LoadApiKey extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         Dotenv dotenv = Dotenv.configure().load();
-              objectMapper.writeValue(resp.getOutputStream(),  dotenv.get("API_KEY"));
+        //dev
+//        objectMapper.writeValue(resp.getOutputStream(),  dotenv.get("API_KEY"));
+
+        //prod
+        objectMapper.writeValue(resp.getOutputStream(),  System.getenv("API_KEY"));
     }
 }

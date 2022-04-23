@@ -15,15 +15,31 @@ import javax.sql.DataSource;
 @EnableWebSecurity
 public class AppConfig extends WebSecurityConfigurerAdapter {
     Dotenv dotenv = Dotenv.configure().load();
-   @Bean
-   public DataSource dataSource(){
-       SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-       dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
-       dataSource.setUrl("jdbc:mysql://"+dotenv.get("DB_HOST")+":3306/"+dotenv.get("DB_NAME"));
-       dataSource.setUsername(dotenv.get("DB_USER"));
-       dataSource.setPassword( dotenv.get("DB_PASSWORD"));
-       return  dataSource;
-   }
+    //dev
+//   @Bean
+//   public DataSource dataSource(){
+//       SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+//       dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
+//       dataSource.setUrl("jdbc:mysql://"+dotenv.get("DB_HOST")+":3306/"+dotenv.get("DB_NAME"));
+//       dataSource.setUsername(dotenv.get("DB_USER"));
+//       dataSource.setPassword( dotenv.get("DB_PASSWORD"));
+//       return  dataSource;
+//   }
+
+
+   ///////////////////////////////////////////////////////
+
+    //prod
+    @Bean
+    public DataSource dataSource(){
+        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+        dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
+        dataSource.setUrl("jdbc:mysql://"+System.getenv("DB_HOST")+":3306/"+System.getenv("DB_NAME"));
+        dataSource.setUsername(System.getenv("DB_USER"));
+        dataSource.setPassword(System.getenv("DB_PASSWORD"));
+        return  dataSource;
+    }
+
    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
        return  new BCryptPasswordEncoder();

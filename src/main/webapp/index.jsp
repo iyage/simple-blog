@@ -157,22 +157,6 @@
 <script>
     let data = {};
     $(document).ready(()=>{
-
-
-        async function test(){
-          try{
-            const resp = await fetch("/test",{
-            method:"GET",
-          })
-             jsonResp = await resp.json();
-            newData = JSON.parse(jsonResp)
-             console.log(newData)
-          }
-          catch(e){
-           console.log(e)
-          }
-        }
-        test();
         async function loadUserData(){
             let userData ={};
           try{

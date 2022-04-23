@@ -26,7 +26,6 @@ public class ProfillePicsUploadController extends HttpServlet {
         if (bufferedReader !=null){
             url=bufferedReader.readLine();
         }
-        System.out.println(url);
       ImageUrl imageUrl =  mapper.readValue(url, ImageUrl.class);
         uploadProfileService.uploadProfile(email, imageUrl.getProfileImageUrl());
         mapper.writeValue(resp.getOutputStream(), "upload successfull");
