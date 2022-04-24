@@ -1,13 +1,14 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="commons/styles/index.css" />
-   <link rel="stylesheet" href="commons/styles/index.css.css">
-<link rel="stylesheet" href="commons/styles/style.css">
-<link rel="stylesheet" href= "commons/fonts/css/all.css" />
-<link rel="stylesheet" href="commons/styles/pagination.css" />
+<link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/index.css" />
+<link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/style.css">
+<link rel="stylesheet" href= "<%= request.getContextPath() %>/commons/fonts/css/all.css" />
+<link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/pagination.css" />
 </head>
 <body>
+    <jsp:include page="/commons/headers/loading.jsp"/>
 <jsp:include page="/commons/headers/header.jsp"/>
 <section class="index-container">
     <div class="index-wrapper">
@@ -150,29 +151,18 @@
         </div>
     </div>
 </section>
-<!-- <script src="commons/js/testdata.js"></script> -->
-<script src="commons/js/jquery.js"></script>
-<script src="commons/js/collapse.js"></script>
-<script src="commons/js/pagination.js"></script>
+<script src="<%= request.getContextPath() %>/commons/js/jquery.js"></script>
+<script src="<%= request.getContextPath() %>/commons/js/collapse.js"></script>
+<script src="<%= request.getContextPath() %>/commons/js/pagination.js"></script>
 <script>
-    let data = {};
+
+  
     $(document).ready(()=>{
 
-
-        async function test(){
-          try{
-            const resp = await fetch("/test",{
-            method:"GET",
-          })
-             jsonResp = await resp.json();
-            newData = JSON.parse(jsonResp)
-             console.log(newData)
-          }
-          catch(e){
-           console.log(e)
-          }
-        }
-        test();
+    setTimeout(()=>{
+        $("#page-load").hide()
+    },500)
+        let data = {};
         async function loadUserData(){
             let userData ={};
           try{
@@ -181,14 +171,15 @@
           })
              jsonResp = await resp.json();
              console.log(jsonResp);
-             if(jsonResp=="anonymous user"){
-                 $(".right-nav-bar").hide();
-             }else{
+             if(jsonResp!="anonymous user"){
+                $("#right-bar-wrapper").show();
+                $("#login-wrapper").hide();  
                  userData = jsonResp;
           userData = JSON.parse(userData);
           console.log(userData)
         $("#user-profile-image").attr("src",userData.profile_pics)
         $("#user-profile-name").append(userData.firstName);
+        $("#user-anchor-link").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+userData.email);
              }
 
        
@@ -274,6 +265,6 @@
     })
         
     </script>
-
+<jsp:include page="/commons/footer/footer.jsp"/>
 </body>
 </html>

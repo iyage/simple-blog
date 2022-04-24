@@ -8,13 +8,13 @@ nav {
   z-index: 100000000;
 }
 .container {
-  width: min(87vw, 87.8%);
+  width: min(90vw, 90.8%);
   margin: auto;
 }
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 80px;
   align-items: center;
 }
@@ -43,6 +43,7 @@ nav {
 .left-nav-bar {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
 }
 .flex-item {
   margin: 0 5px;
@@ -55,24 +56,6 @@ nav {
   color: #005c80;
   font-weight: 900;
   font-family: lobster;
-}
-
-#notification-badge {
-  text-align: center;
-  background-color: #005c80;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-  padding: 2px;
-  position: absolute;
-  top: 2px;
-  left: 8px;
-  font-size: 10px;
-  color: white;
-}
-#notification-icon {
-  font-size: 22px;
-  cursor: pointer;
 }
 .notification {
   position: relative;

@@ -20,6 +20,8 @@ public class Connection {
     private  String url = "jdbc:mysql://"+System.getenv("DB_HOST")+":3306/"+System.getenv("DB_NAME");
     private  String userName = System.getenv("DB_USER");
     private String password = System.getenv("DB_PASSWORD");
+
+    ////////////////////////////////////////////////////////////////
     private Connection() {}
   private java.sql.Connection getConnection() {
        java.sql.Connection connection = null;

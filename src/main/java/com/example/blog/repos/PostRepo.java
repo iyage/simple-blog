@@ -34,7 +34,7 @@ public class PostRepo {
 
     public PostDto  LoadPostById(int id){
         PostDto postDto = new PostDto();
-        String query = "select  posts.id,posts.headline,posts.front_page, user.profile_pics,user.first_name,posts.post from posts inner join user on posts.user_id=user.id where posts.id=?";
+        String query = "select  posts.id,posts.headline,posts.front_page,user.profile_pics,user.first_name,user.email,posts.post from posts inner join user on posts.user_id=user.id where posts.id=?";
         try {
             PreparedStatement preparedStatement = Connection.getInstance().getStatement(query);
             preparedStatement.setInt(1,id);
@@ -46,6 +46,8 @@ public class PostRepo {
                 postDto.setProfilePics(resultSet.getString("profile_pics"));
                 postDto.setPost(resultSet.getString("post"));
                 postDto.setId(resultSet.getInt("id"));
+                postDto.setEmail(resultSet.getString("email"));
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

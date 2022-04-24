@@ -4,6 +4,7 @@ com/example/blog/service/UserService.class
 com/example/blog/controler/loginErrorController.class
 com/example/blog/repos/PostRepo.class
 com/example/blog/repos/RegistrationRepo.class
+com/example/blog/controler/LoudUserByEmail.class
 com/example/blog/model/ImageUrl.class
 com/example/blog/repos/UserRepo.class
 com/example/blog/service/serviceimpl/RegistrationServiceImpl.class
@@ -22,7 +23,6 @@ com/example/blog/model/dto/CommentsDto.class
 com/example/blog/controler/UserDashboard.class
 com/example/blog/repos/LikesRepo.class
 com/example/blog/service/serviceimpl/CommentServiceImpl.class
-com/example/blog/controler/TestController.class
 com/example/blog/controler/HomeController.class
 com/example/blog/AppSecurityInitializer.class
 com/example/blog/controler/CoverPicsUpload.class

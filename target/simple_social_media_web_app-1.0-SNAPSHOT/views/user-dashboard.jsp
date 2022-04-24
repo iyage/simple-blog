@@ -1,15 +1,17 @@
-  <head>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
+ <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>user-dashboard!!!!</title>
-    <link rel="stylesheet" href="../commons/styles/style.css">
-    <link rel="stylesheet" href="../commons/fonts/css/all.css" />
-    <link rel="stylesheet" href="../commons/styles/user-dashboard.css">
-    <%@ page language="java" contentType="text/html; charset=ISO-8859-1"   pageEncoding="ISO-8859-1"%>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/fonts/css/all.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/user-dashboard.css">
   </head>
   <body>
+    <jsp:include page="/commons/headers/loading.jsp"/>
      <jsp:include page="/commons/headers/header.jsp"/>
+     <section style="margin-bottom: 50px;">
     <section class="cover-picture">
       <div class="cover-picture-section">
        <img src="" alt="" class="cover-image">
@@ -94,16 +96,24 @@
 
        </div>
       </div>
-      </section class="main-content">
       <div class="main-content-container">
         <div class="bio"></div>
       </div>
-      <script src="../commons/js/jquery.js"></script>
+     </section>
+      <jsp:include page="/commons/footer/footer.jsp"/>
+      <script src="<%= request.getContextPath() %>/commons/js/jquery.js"></script>
       <script>
      
      $(document).ready(()=>{
+      let query = window.location.search;
+let urlParams = new URLSearchParams(query);
+let email = urlParams.get("email")
+console.log(email)
 
-      {
+      setTimeout(()=>{
+        $("#page-load").hide()
+    },500)
+    $("#login-wrapper").hide();  
         let userData ={};
         let API_KEY = "";
         async function loadKey(){
@@ -121,19 +131,33 @@
         
           async function loadUserData(){
           try{
-            const resp = await fetch("/load_user_data",{
-            method:"GET",
+            const resp = await fetch("/load_user_by_email",{
+            method:"POST",
+            headers:{
+              "content-type":"www-x-form-urlencoded"
+            },
+            body:email,
           })
           userData = await resp.json();
-          userData = JSON.parse(userData);
-        $(".profile-image").attr("src",userData.profile_pics)
-        $(".profile-image-to-edit").attr("src",userData.profile_pics)
-        $(".cover-image").attr("src",userData.cover_pics)
-        $(".cover-image-to-edit").attr("src",userData.cover_pics)
-        $("#user-profile-image").attr("src",userData.profile_pics)
-        $("#user-profile-name").append(userData.firstName);
-       
-          }
+         console.log(userData)
+         if(userData.authentication!="anonymousUser"){
+        $("#user-profile-image").attr("src",userData.logInUser["profile_pics"])
+        $("#user-profile-name").append(userData.logInUser["firstName"]);
+        $("#user-anchor-link").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+userData.logInUser["email"]);
+        $("#right-bar-wrapper").show();
+        $("#login-wrapper").hide();  
+         }else{
+          $("#login-wrapper").show();  
+         }
+         if(userData.userDetails["email"]!=userData.authentication){
+           $(".edit-profile-button").hide();
+         }
+         $(".profile-image").attr("src",userData.userDetails["profile_pics"])
+        $(".profile-image-to-edit").attr("src",userData.userDetails["profile_pics"])
+        $(".cover-image").attr("src",userData.userDetails["cover_pics"])
+        $(".cover-image-to-edit").attr("src",userData.userDetails["cover_pics"])
+  
+  }
           catch(e){
            console.log(e)
           }
@@ -197,6 +221,7 @@
          if(urlData!=undefined){
            $(".profile-image").attr("src",urlData)
            $(".profile-image-to-edit").attr("src",urlData)
+           $("#user-profile-image").attr("src",urlData)
           data= {
           profileImageUrl:urlData
           }
@@ -249,11 +274,6 @@
               $(".edit-cover-img-modal").fadeOut(200)
             }
         }
-
-     }
      })
-    
-        
-
       </script>
   </body>

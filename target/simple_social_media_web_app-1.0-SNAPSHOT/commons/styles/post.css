@@ -33,6 +33,11 @@
   flex-wrap: wrap;
   align-items: center;
   height: 70px;
+ 
+}
+#author-image-container{
+  display: block;
+  font-size: 14px;
 }
 .author-pic {
   width: 40px;

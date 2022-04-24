@@ -1,4 +1,5 @@
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/service/UserService.java
+/Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/controler/LoudUserByEmail.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/connection/Connection.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/service/serviceimpl/PostServiceImpl.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/service/CommentService.java
@@ -14,7 +15,6 @@
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/repos/CommentsRepo.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/model/dto/CommentsDto.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/controler/HomeController.java
-/Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/controler/TestController.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/controler/LoadUser.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/model/dto/PostDto.java
 /Users/yage/Desktop/my projects/simple-blog/src/main/java/com/example/blog/model/Likes.java

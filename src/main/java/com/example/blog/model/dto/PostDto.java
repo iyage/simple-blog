@@ -12,4 +12,5 @@ public class PostDto {
     private int id;
     private String headLine;
     private  String firstName;
+    private  String email;
 }

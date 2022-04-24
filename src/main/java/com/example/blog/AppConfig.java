@@ -40,6 +40,7 @@ public class AppConfig extends WebSecurityConfigurerAdapter {
         return  dataSource;
     }
 
+//////////////////////////////////////////////////////
    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
        return  new BCryptPasswordEncoder();

@@ -4,21 +4,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Frontpage!</title>
-     <link rel="stylesheet" href="../commons/styles/style.css" />
-    <link rel="stylesheet" href="../commons/fonts/css/all.css" />
-    <link rel="stylesheet" href="../commons/styles/post.css" />
-
+     <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/style.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/fonts/css/all.css" />
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/post.css" />
   </head>
   <body>
+    <jsp:include page="/commons/headers/loading.jsp"/>
   <jsp:include page="/commons/headers/header.jsp"/>
-    <section class="post-container">
+    <section class="post-container" style="margin-bottom: 50px;">
       <section class="post">
         <section class="author-profile">
           <div class="author-image">
-            <span
-              ><img src="" class="author-pic" alt=""
-            /></span>
-            <h5 id="bloger-name"></h5>
+            <a href="" id="author-image-container">
+            
+                <span
+                ><img src="" class="author-pic" alt=""
+              /></span>
+              <h5 id="bloger-name"></h5>
+        
+            </a>
+  
+           
           </div>
           <div class="author-milage">
             <h5 style="padding: 5px">
@@ -70,7 +76,7 @@
               ><span id="comment-like-counts">10</span>
             </div>
             <div class="comments-count">
-              <span class="icon-class" id="reply">reply</span>
+              <!-- <span class="icon-class" id="reply">reply</span> -->
             <span id="comment-comment-counts">10</span>
             </div>
           </section>
@@ -80,6 +86,9 @@
     <script src="../commons/js/jquery.js"></script>
     <script>
       $(document).ready(()=>{
+        setTimeout(()=>{
+        $("#page-load").hide()
+    },500)
         let data = {};
       query = window.location.search;
       urlParams = new URLSearchParams(query);
@@ -96,9 +105,17 @@
          jsonResp = await resp.json();
          data=jsonResp;
          console.log(data);
+         if(data.user!=="anonymousUser"){
+          $("#login-wrapper").hide();  
+        $("#right-bar-wrapper").show();
+        $("#user-profile-image").attr("src",data.userDetails["profile_pics"])
+        $("#user-profile-name").append(data.userDetails["firstName"]);
+        $("#user-anchor-link").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+data.userDetails["email"]);
+             }
          $("#bloger-name").append(data.post["firstName"])
-       $(".author-pic").attr("src",data.post["profile_pics"]);
+       $(".author-pic").attr("src",data.post["profilePics"]);
        $("#post-body").append(data.post["post"])
+       $("#author-image-container").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+data.post["email"])
       }
       fetchPost(id)
  
@@ -106,4 +123,5 @@
       })
       
     </script>
+    <jsp:include page="/commons/footer/footer.jsp"/>
   </body>
