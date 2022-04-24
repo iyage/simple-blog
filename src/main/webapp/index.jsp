@@ -161,7 +161,7 @@
 
     setTimeout(()=>{
         $("#page-load").hide()
-    },500)
+    },800)
         let data = {};
         async function loadUserData(){
             let userData ={};

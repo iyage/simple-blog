@@ -112,7 +112,7 @@ console.log(email)
 
       setTimeout(()=>{
         $("#page-load").hide()
-    },500)
+    },800)
     $("#login-wrapper").hide();  
         let userData ={};
         let API_KEY = "";

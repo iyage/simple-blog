@@ -88,7 +88,7 @@
       $(document).ready(()=>{
         setTimeout(()=>{
         $("#page-load").hide()
-    },500)
+    },800)
         let data = {};
       query = window.location.search;
       urlParams = new URLSearchParams(query);
