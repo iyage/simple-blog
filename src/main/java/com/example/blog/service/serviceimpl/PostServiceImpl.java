@@ -18,4 +18,15 @@ public class PostServiceImpl implements PostService {
         PostRepo postRepo = new PostRepo();
         return postRepo.LoadPostById(id);
     }
+
+    @Override
+    public PostDto fetchPostByUserrId(int id) {
+        return null;
+    }
+
+    @Override
+    public int createPost(PostDto postDto) {
+        PostRepo postRepo = new PostRepo();
+        return  postRepo.createPost(postDto);
+    }
 }

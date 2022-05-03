@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="commons/styles/style.css">
     <link rel="stylesheet" href="commons/fonts/css/all.css" />
     <link rel="stylesheet" href="commons/styles/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
 </head>
 <body>

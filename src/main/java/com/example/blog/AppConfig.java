@@ -1,5 +1,6 @@
 package com.example.blog;
 
+import com.example.blog.service.serviceimpl.LoadSecreteService;
 import io.github.cdimascio.dotenv.Dotenv;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,36 +12,23 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;
+import java.util.Map;
+
 @Configuration
 @EnableWebSecurity
 public class AppConfig extends WebSecurityConfigurerAdapter {
     Dotenv dotenv = Dotenv.configure().load();
-    //dev
-//   @Bean
-//   public DataSource dataSource(){
-//       SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-//       dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
-//       dataSource.setUrl("jdbc:mysql://"+dotenv.get("DB_HOST")+":3306/"+dotenv.get("DB_NAME"));
-//       dataSource.setUsername(dotenv.get("DB_USER"));
-//       dataSource.setPassword( dotenv.get("DB_PASSWORD"));
-//       return  dataSource;
-//   }
-
-
-   ///////////////////////////////////////////////////////
-
-    //prod
-    @Bean
-    public DataSource dataSource(){
-        SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
-        dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
-        dataSource.setUrl("jdbc:mysql://"+System.getenv("DB_HOST")+":3306/"+System.getenv("DB_NAME"));
-        dataSource.setUsername(System.getenv("DB_USER"));
-        dataSource.setPassword(System.getenv("DB_PASSWORD"));
-        return  dataSource;
-    }
-
-//////////////////////////////////////////////////////
+   @Bean
+   public DataSource dataSource(){
+       LoadSecreteService loadSecreteService = new LoadSecreteService();
+       Map<String, String> secret= loadSecreteService.loadSecret();
+       SimpleDriverDataSource dataSource = new SimpleDriverDataSource();
+       dataSource.setDriverClass(com.mysql.cj.jdbc.Driver.class);
+       dataSource.setUrl("jdbc:mysql://"+secret.get("DB_HOST")+":3306/"+secret.get("DB_NAME"));
+       dataSource.setUsername(secret.get("DB_USER"));
+       dataSource.setPassword(secret.get("DB_PASSWORD"));
+       return  dataSource;
+   }
    @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder(){
        return  new BCryptPasswordEncoder();

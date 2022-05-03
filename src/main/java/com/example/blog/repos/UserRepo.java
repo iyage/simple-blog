@@ -24,6 +24,7 @@ public class UserRepo {
            user.setFirstName(resultSet.getString("first_name"));
            user.setCover_pics(resultSet.getString("cover_pics"));
            user.setProfile_pics(resultSet.getString("profile_pics"));
+           user.setId(resultSet.getInt("id"));
 
        }
             preparedStatement.close();

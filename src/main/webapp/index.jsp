@@ -6,11 +6,14 @@
 <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/style.css">
 <link rel="stylesheet" href= "<%= request.getContextPath() %>/commons/fonts/css/all.css" />
 <link rel="stylesheet" href="<%= request.getContextPath() %>/commons/styles/pagination.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+
     <jsp:include page="/commons/headers/loading.jsp"/>
 <jsp:include page="/commons/headers/header.jsp"/>
 <section class="index-container">
+    <jsp:include page="/commons/headers/nav-bar-menu.jsp"/>
     <div class="index-wrapper">
         <div class="side-bar item">
             <div class="side-bar-container">
@@ -144,7 +147,7 @@
         <div class="main-body item">
             <div class="main-body-container">
                 <div id="data-container"></div>
-                <div style="display: flex; justify-content: center; width: 70%;margin: auto;">
+                <div style="display: flex; justify-content: center; width: 70%;margin: auto;margin-bottom: 50px;">
                     <div id="pagination-container"></div>
                 </div>
             </div>
@@ -153,11 +156,11 @@
 </section>
 <script src="<%= request.getContextPath() %>/commons/js/jquery.js"></script>
 <script src="<%= request.getContextPath() %>/commons/js/collapse.js"></script>
+<script src="<%= request.getContextPath() %>/commons/js/nav-bar-collapse.js"></script>
 <script src="<%= request.getContextPath() %>/commons/js/pagination.js"></script>
 <script>
 
-  
-    $(document).ready(()=>{
+    // $(document).ready(()=>{
 
     setTimeout(()=>{
         $("#page-load").hide()
@@ -172,14 +175,14 @@
              jsonResp = await resp.json();
              console.log(jsonResp);
              if(jsonResp!="anonymous user"){
-                $("#right-bar-wrapper").show();
-                $("#login-wrapper").hide();  
+                $(".right-bar-wrapper").show();
+                $(".login-wrapper").hide();  
                  userData = jsonResp;
           userData = JSON.parse(userData);
           console.log(userData)
-        $("#user-profile-image").attr("src",userData.profile_pics)
+        $(".user-profile-image").attr("src",userData.profile_pics)
         $("#user-profile-name").append(userData.firstName);
-        $("#user-anchor-link").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+userData.email);
+        $(".user-anchor-link").attr("href","<%= request.getContextPath() %>/views/user-dashboard.jsp?email="+userData.email);
              }
 
        
@@ -261,10 +264,9 @@
           }
         }
         loadFrontPage();
-
-    })
         
     </script>
+
 <jsp:include page="/commons/footer/footer.jsp"/>
 </body>
 </html>
