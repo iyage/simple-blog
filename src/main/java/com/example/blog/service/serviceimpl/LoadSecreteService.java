@@ -30,7 +30,7 @@ public class LoadSecreteService {
             put("DB_HOST",System.getenv("DB_HOST"));
             put("DB_USER",System.getenv("DB_USER"));
             put("DB_NAME",System.getenv("DB_NAME"));
-            put(" DB_PASSWORD",System.getenv("DB_PASSWORD"));
+            put("DB_PASSWORD",System.getenv("DB_PASSWORD"));
         }};
    return secret;
    }
