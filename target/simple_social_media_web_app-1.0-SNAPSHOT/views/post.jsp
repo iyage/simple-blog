@@ -64,8 +64,9 @@
       <div id="comments-container">
     </div>
     </section>
-    <script src="<%= request.getContextPath() %>/commons/js/nav-bar-collapse.js"></script>
     <script src="../commons/js/jquery.js"></script>
+    <script src="<%= request.getContextPath() %>/commons/js/nav-bar-collapse.js"></script>
+
     <jsp:include page="/commons/footer/footer.jsp"/>
  
     <script>
