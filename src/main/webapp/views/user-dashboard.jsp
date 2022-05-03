@@ -180,7 +180,6 @@ covereModal = document.getElementsByClassName("edit-cover-img-modal")
 
        $("#upload-profile-img").on("click",(e)=>{
         e.preventDefault();
-        let file = document.getElementById().files;
          formData("profile-img-input")
        })
 
@@ -232,7 +231,12 @@ function formData(elem){
           data.append("timestamp",Date.now())
           data.append("upload_preset","v12frawa")
           data.append("folder","samples")
-          uploadCoverImg(data);
+          if(elem=="profile-img-input"){
+            uploadProfileImg(data)
+          }else{
+            uploadCoverImg(data);
+          }
+         
 }
 
 
