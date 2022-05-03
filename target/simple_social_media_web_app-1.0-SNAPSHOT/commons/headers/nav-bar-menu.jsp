@@ -47,10 +47,10 @@
   color: white;
   cursor: pointer;
 }
-.categorys {
+.nav-categorys {
   padding: 20px 0;
 }
-.category {
+.nav-category {
   border: 0.3px solid #005c80;
   width: 100%;
   height: 30px;
@@ -75,7 +75,7 @@
   cursor: pointer;
 }
 
-.collapse {
+.nav-collapse {
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -84,36 +84,30 @@
   justify-content: center;
   padding: 2px;
 }
-.collapse:hover {
+.nav-collapse:hover {
   background-color: #005c80;
   color: white;
 }
-.subcategory {
+.nav-subcategory {
   display: none;
 }
-.btn {
+.nav-btn {
   padding: 0.2em 1em;
   color:white;
   font-size: 18px;
   border-radius: 10px;
 }
-.posts-link{
-  display: block;
-  white-space:normal;
-  font-family: 'Times New Roman', Times, serif;
-  color: var(---primary);
-}
-.btn:hover {
+.nav-btn:hover {
   background-color: rgb(0, 92, 128, 0.1);
 }
-.subcategory-container {
+.nav-subcategory-container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 10px;
 }
-.subcategory-item {
+.nav-subcategory-item {
   margin: 8px 2px;
   flex: 10%;
   flex-grow: 0;
@@ -128,10 +122,10 @@
           <input type="search" id="nav-search" placeholder="search....." />
           <i class="fa-solid fa-magnifying-glass" id="nav-search-icon"></i>
       </section>
-      <section class="categorys">
-          <div class="category">
+      <section class="nav-categorys">
+          <div class="nav-category">
               <div>General</div>
-              <div class="collapse">
+              <div class="nav-collapse">
         <span class="plus-icon" id="nav-show-general"
         ><i class="fa-solid fa-plus"></i
         ></span>
@@ -141,31 +135,31 @@
               </div>
           </div>
 
-          <div class="subcategory" id="nav-general">
-              <div class="subcategory-container">
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+          <div class="nav-subcategory" id="nav-general">
+              <div class="nav-subcategory-container">
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="" class="btn">Romance</a>
+                  <div class="nav-subcategory-item">
+                      <a href="" class="nav-btn">Romance</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Sports</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Sports</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Real Estate</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Real Estate</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
               </div>
           </div>
-          <div class="category">
+          <div class="nav-category">
               <div>Entertainment</div>
-              <div class="collapse">
+              <div class="nav-collapse">
         <span class="plus-icon" id="nav-show-entertainment"
         ><i class="fa-solid fa-plus"></i
         ></span>
@@ -174,71 +168,71 @@
           ></span>
               </div>
           </div>
-          <div class="subcategory" id="nav-entertainment">
-              <div class="subcategory-container">
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+          <div class="nav-subcategory" id="nav-entertainment">
+              <div class="nav-subcategory-container">
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Politics</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Politics</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="" class="btn">Romance</a>
+                  <div class="nav-subcategory-item">
+                      <a href="" class="nav-btn">Romance</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Sports</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Sports</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Real Estate</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Real Estate</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-0subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">Job</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">Job</a>
                   </div>
-                  <div class="subcategory-item">
-                      <a href="#" class="btn">NYSC</a>
+                  <div class="nav-subcategory-item">
+                      <a href="#" class="nav-btn">NYSC</a>
                   </div>
               </div>
           </div>
 
-          <div class="category">
+          <div class="nav-category">
               <div>Science/Technology</div>
-              <div class="collapse">
+              <div class="nav-collapse">
         <span class="plus-icon" id="nav-show-science"
         ><i class="fa-solid fa-plus"></i
         ></span>
@@ -247,7 +241,7 @@
           ></span>
               </div>
           </div>
-          <div class="subcategory" id="nav-science">Science</div>
+          <div class="nav-subcategory" id="nav-science">Science</div>
       </section>
   </div>
   <div  class="right-bar-wrapper" hidden style="text-align: center;">
