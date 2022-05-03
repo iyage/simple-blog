@@ -28,7 +28,7 @@ public class LoadSecreteService {
                 Map<String,String> secret =  new HashMap(){{
             put("API_KEY",System.getenv("API_KEY"));
             put("DB_HOST",System.getenv("DB_HOST"));
-            put("DB_HOST",System.getenv("DB_HOST"));
+            put("DB_USER",System.getenv("DB_USER"));
             put("DB_NAME",System.getenv("DB_NAME"));
             put(" DB_PASSWORD",System.getenv("DB_PASSWORD"));
         }};
